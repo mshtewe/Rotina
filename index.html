@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotina | שיווק וגיוס לעסקים</title>
+  <meta name="description" content="Rotina - ניהול קמפיינים, Google למסעדות, Reels וגיוס עובדים למסעדות." />
+  <link rel="canonical" href="https://rotina.co.il/" />
+  <link rel="icon" href="rotina-logo.svg" type="image/svg+xml" />
+  <style>
+    :root{
+      --bg:#192537;
+      --card:#223247;
+      --soft:#293b52;
+      --text:#ffffff;
+      --muted:#c9ced5;
+      --line:#3a4d64;
+      --accent:#AC9B7E;
+      --accentText:#192537;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(172,155,126,.12), transparent 30%),
+        linear-gradient(180deg,#152131 0%,#192537 100%);
+      color:var(--text);
+      line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(25,37,55,.88);
+      border-bottom:1px solid rgba(172,155,126,.12);
+    }
+    .nav{
+      min-height:72px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{font-size:1.15rem;font-weight:800;letter-spacing:.2px;display:flex;align-items:center}
+    .brand-logo{display:block;width:142px;height:auto;border-radius:5px}
+    .nav a.cta{
+      background:#AC9B7E;color:#192537;padding:11px 18px;border-radius:999px;font-weight:800;
+    }
+    .hero{
+      padding:88px 0 60px;
+      text-align:center;
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:#d7d7dc;
+      font-size:.9rem;
+      margin-bottom:22px;
+      background:rgba(255,255,255,.03);
+    }
+    h1{
+      font-size:clamp(2.4rem,7vw,5.4rem);
+      line-height:1.02;
+      margin:0 auto 22px;
+      max-width:980px;
+      letter-spacing:-2.5px;
+    }
+    .hero p{
+      max-width:760px;margin:0 auto 30px;color:var(--muted);font-size:1.15rem;
+    }
+    .hero-actions{
+      display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 24px;border-radius:14px;font-weight:800;
+      transition:.2s ease;border:1px solid var(--line);
+    }
+    .btn.primary{background:#AC9B7E;color:#192537;border-color:#fff}
+    .btn.secondary{background:transparent;color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .section{padding:62px 0}
+    .section-title{text-align:center;margin-bottom:32px}
+    .section-title h2{font-size:clamp(2rem,4vw,3.2rem);margin:0 0 10px}
+    .section-title p{color:var(--muted);margin:0}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+      position:relative;
+      min-height:100%;
+      box-shadow:0 18px 50px rgba(0,0,0,.2);
+    }
+    .card.featured{
+      border-color:#AC9B7E;
+      transform:translateY(-8px);
+      background:linear-gradient(180deg,rgba(172,155,126,.14),rgba(255,255,255,.035));
+    }
+    .badge{
+      position:absolute;top:18px;left:18px;
+      background:#AC9B7E;color:#192537;
+      border-radius:999px;padding:6px 10px;
+      font-size:.78rem;font-weight:800;
+    }
+    .card h3{font-size:1.55rem;margin:0 0 8px}
+    .price{
+      font-size:2.2rem;font-weight:900;margin:8px 0 4px;
+    }
+    .sub{color:var(--muted);font-size:.95rem}
+    .features{
+      list-style:none;padding:0;margin:22px 0;
+    }
+    .features li{
+      padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);
+      color:#dedee3;
+    }
+    .features li:before{content:"✓ ";font-weight:900}
+    .card .btn{width:100%;margin-top:10px}
+    .note{font-size:.83rem;color:#8f8f98;margin-top:12px}
+    .why{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+    }
+    .why-item{
+      padding:24px;border:1px solid var(--line);border-radius:18px;background:#1e2d42;
+    }
+    .why-item strong{display:block;font-size:1.15rem;margin-bottom:8px}
+    .why-item span{color:var(--muted)}
+    .contact-wrap{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;
+      background:#1e2d42;border:1px solid var(--line);border-radius:24px;padding:30px;
+    }
+    .contact-copy h2{font-size:2.5rem;margin:0 0 12px}
+    .contact-copy p{color:var(--muted)}
+    form{display:grid;gap:12px}
+    input,select,textarea{
+      width:100%;padding:14px 15px;border-radius:12px;
+      border:1px solid var(--line);background:#152131;color:#fff;font:inherit;
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    button{
+      cursor:pointer;border:none;
+      padding:14px 20px;border-radius:12px;font-weight:800;font-size:1rem;
+    }
+    .success{
+      display:none;margin-top:10px;color:#d8ffd8;font-weight:700;
+    }
+    footer{
+      padding:34px 0 48px;
+      text-align:center;color:#777782;font-size:.9rem;
+    }
+    @media(max-width:900px){
+      .grid,.why,.contact-wrap{grid-template-columns:1fr}
+      .card.featured{transform:none}
+      h1{letter-spacing:-1.5px}
+    }
+    @media(max-width:560px){
+      .nav{min-height:64px}
+      .brand{font-size:1rem}
+      .nav a.cta{padding:9px 13px;font-size:.9rem}
+      .hero{padding-top:62px}
+      .card{padding:22px}
+      .contact-wrap{padding:22px}
+      .contact-copy h2{font-size:2rem}
+    }
+  
+    /* --- Polished equal-height service cards --- */
+    .grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-auto-rows:1fr;
+      gap:22px;
+    }
+    .card{
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      min-height:560px;
+      overflow:hidden;
+      transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(172,155,126,.62);
+      box-shadow:0 24px 65px rgba(0,0,0,.28);
+    }
+    .card .features{flex:1}
+    .card .btn{margin-top:auto}
+    .card-head{
+      min-height:126px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+    .service-icon{
+      width:48px;height:48px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:16px;
+      background:rgba(172,155,126,.11);
+      border:1px solid rgba(172,155,126,.28);
+      font-size:22px;
+    }
+    .pricing-box{
+      margin-top:14px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      overflow:hidden;
+      background:rgba(0,0,0,.08);
+    }
+    .pricing-row{
+      display:flex;justify-content:space-between;gap:14px;
+      padding:9px 11px;
+      font-size:.82rem;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .pricing-row:last-child{border-bottom:0}
+    .pricing-row strong{color:#fff;white-space:nowrap}
+    .google-card{
+      border-color:rgba(172,155,126,.88);
+      background:
+        radial-gradient(circle at 15% 8%,rgba(172,155,126,.18),transparent 31%),
+        linear-gradient(180deg,rgba(172,155,126,.09),rgba(255,255,255,.02));
+      box-shadow:0 20px 58px rgba(0,0,0,.23),0 0 0 1px rgba(172,155,126,.08);
+    }
+    .google-card::before{
+      content:"";
+      position:absolute;inset:-2px;
+      border-radius:24px;
+      border:1px solid rgba(172,155,126,.58);
+      pointer-events:none;
+      opacity:.3;
+      animation:googleGlow 2.6s ease-in-out infinite;
+    }
+    @keyframes googleGlow{
+      0%,100%{opacity:.18;box-shadow:0 0 0 0 rgba(172,155,126,0)}
+      50%{opacity:.9;box-shadow:0 0 28px 3px rgba(172,155,126,.15)}
+    }
+    .google-card .service-icon{
+      animation:iconFloat 2.8s ease-in-out infinite;
+    }
+    @keyframes iconFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-4px)}
+    }
+    .google-card .btn{
+      position:relative;
+      overflow:hidden;
+      background:#AC9B7E;
+      color:#192537;
+      border-color:#AC9B7E;
+    }
+    .google-card .btn::after{
+      content:"";
+      position:absolute;top:-50%;left:-35%;
+      width:28%;height:200%;
+      background:rgba(255,255,255,.34);
+      transform:rotate(24deg);
+      animation:shine 3.4s ease-in-out infinite;
+    }
+    @keyframes shine{
+      0%,45%{left:-35%}
+      65%,100%{left:120%}
+    }
+    .sales-badge{
+      position:absolute;top:18px;left:18px;
+      background:#AC9B7E;color:#192537;
+      padding:7px 11px;border-radius:999px;
+      font-size:.76rem;font-weight:900;
+      box-shadow:0 8px 22px rgba(0,0,0,.18);
+    }
+    .micro{
+      font-size:.78rem;color:#b8c0c9;margin-top:9px;text-align:center;
+    }
+    .card.selected{
+      border-color:#fff;
+      box-shadow:0 0 0 2px rgba(172,155,126,.9),0 28px 75px rgba(0,0,0,.32);
+      transform:translateY(-7px);
+    }
+    @media(max-width:900px){
+      .card{min-height:auto}
+      .card-head{min-height:auto}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .google-card::before,.google-card .service-icon,.google-card .btn::after{animation:none}
+      .card{transition:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand"><img src="rotina-logo.svg" alt="Rotina" class="brand-logo"></div>
+    <a href="#contact" class="cta">בואו נדבר</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">שיווק • תוכן • גיוס • Google</div>
+      <h1>פחות רעש. יותר תוצאות לעסק.</h1>
+      <p>
+        ארבעה מסלולים ברורים לעסקים שרוצים לגדול:
+        Google למסעדות, ניהול קמפיינים לעסקים נבחרים, Reels וגיוס ממוקד למסעדות בתל אביב.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#packages">לצפייה במסלולים</a>
+        <a class="btn secondary" href="#contact">השאירו פרטים</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="packages">
+    <div class="container">
+      <div class="section-title">
+        <h2>בחרו את המסלול שמתאים לעסק</h2>
+        <p>מחיר ברור. שירות ממוקד. בלי חבילות מסובכות.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card google-card selectable-card" data-service="Rotina Google">
+          <div class="sales-badge">הבחירה החכמה למסעדות</div>
+          <div class="service-icon">G</div>
+          <div class="card-head">
+            <h3>Rotina Google</h3>
+            <div class="price">₪1,370</div>
+            <div class="sub">חודש ראשון • למסעדות בלבד</div>
+          </div>
+          <ul class="features">
+            <li>ניהול Google Business Profile</li>
+            <li>עדכון שעות, פרטים, תמונות ותפריט</li>
+            <li>ניהול ביקורות ועדכונים שוטפים</li>
+            <li>שיפור נראות ב-Google Search וב-Google Maps</li>
+            <li>בניית בסיס נכון לנוכחות מקומית לאורך זמן</li>
+          </ul>
+          <a class="btn primary service-btn" href="#contact">אני רוצה יותר נראות בגוגל</a>
+          <div class="micro">אחרי החודש הראשון: ₪490 לחודש לניהול שוטף</div>
+        </article>
+
+        <article class="card selectable-card" data-service="Rotina Ads">
+          <div class="service-icon">↗</div>
+          <div class="card-head">
+            <h3>Rotina Ads</h3>
+            <div class="price">₪1,670</div>
+            <div class="sub">חודש ראשון</div>
+          </div>
+          <ul class="features">
+            <li>ניהול קמפיינים ממומנים</li>
+            <li>מותאם למסעדות, עורכי דין וסוכני ביטוח</li>
+            <li>בניית קהלים, מודעות ואופטימיזציה</li>
+            <li>תקציב הפרסום נשאר בשליטה מלאה שלכם</li>
+            <li>צפייה בזמן אמת דרך Meta Ads Manager</li>
+          </ul>
+          <div class="pricing-box" aria-label="מחירי ניהול מהחודש השני">
+            <div class="pricing-row"><span>עד ₪3,000 מדיה</span><strong>₪670</strong></div>
+            <div class="pricing-row"><span>₪3,001–₪6,999</span><strong>₪890</strong></div>
+            <div class="pricing-row"><span>₪7,000 ומעלה</span><strong>₪1,200</strong></div>
+          </div>
+          <a class="btn secondary service-btn" href="#contact">אני רוצה להתחיל לפרסם</a>
+          <div class="micro">הקמה או עריכה של קמפיין נוסף: ₪449</div>
+        </article>
+
+        <article class="card selectable-card" data-service="Rotina Ads + Reels">
+          <div class="service-icon">▶</div>
+          <div class="card-head">
+            <h3>Rotina Ads + Reels</h3>
+            <div class="price">₪3,170</div>
+            <div class="sub">לחודש</div>
+          </div>
+          <ul class="features">
+            <li>כל מה שכלול במסלול Rotina Ads</li>
+            <li>עד 3 Reels בחודש</li>
+            <li>יצירת תוכן מותאם לעסק</li>
+            <li>חיבור בין התוכן לקמפיינים</li>
+            <li>נוכחות מקצועית ואחידה ברשת</li>
+          </ul>
+          <a class="btn secondary service-btn" href="#contact">אני רוצה קמפיינים + Reels</a>
+          <div class="micro">תקציב המדיה והפקות מורחבות אינם כלולים</div>
+        </article>
+
+        <article class="card selectable-card" data-service="Rotina Recruit">
+          <div class="badge">מחיר השקה</div>
+          <div class="service-icon">＋</div>
+          <div class="card-head">
+            <h3>Rotina Recruit</h3>
+            <div class="price">₪3,970</div>
+            <div class="sub">למסעדות בתל אביב</div>
+          </div>
+          <ul class="features">
+            <li>שיחת היכרות ואפיון צרכי המסעדה</li>
+            <li>קמפיין גיוס דרך הסושיאל של המסעדה</li>
+            <li>טיפול ב-WhatsApp ובשיחות עם מועמדים</li>
+            <li>סינון וראיון ראשוני על ידי Rotina</li>
+            <li>יעד: עד 2 מועמדים מתאימים שעברו סינון</li>
+          </ul>
+          <a class="btn secondary service-btn" href="#contact">תנהלו לי את הגיוס</a>
+          <div class="micro">מחיר רגיל בהמשך: ₪4,970 • תקציב מדיה בנפרד</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>למה זה עובד</h2>
+        <p>כי אנחנו לא מוכרים רק פרסום — אנחנו מנהלים תהליך שמוריד עומס ומייצר תוצאה.</p>
+      </div>
+      <div class="why">
+        <div class="why-item">
+          <strong>פשוט וברור</strong>
+          <span>מסלולים עם מחיר מוגדר ובלי הפתעות באמצע.</span>
+        </div>
+        <div class="why-item">
+          <strong>ממוקד ביצועים</strong>
+          <span>עבודה לפי תוצאות, שיפור ואופטימיזציה לאורך הדרך.</span>
+        </div>
+        <div class="why-item">
+          <strong>התמחות ברורה</strong>
+          <span>מסעדות, עורכי דין וסוכני ביטוח — עם פתרונות ממוקדים לכל תחום.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-copy">
+          <h2>בואו נתחיל.</h2>
+          <p>
+            השאירו פרטים ובחרו את השירות שמעניין אתכם.
+            אפשר להשתמש בטופס הזה כבסיס ולחבר אותו אחר כך ל-WhatsApp,
+            למייל או למערכת לידים.
+          </p>
+        </div>
+
+        <form id="leadForm">
+          <input required type="text" name="name" placeholder="שם מלא" />
+          <input required type="text" name="business" placeholder="שם העסק" />
+          <input required type="tel" name="phone" placeholder="טלפון" />
+          <select required name="service" id="serviceSelect">
+            <option value="">איזה שירות מעניין אתכם?</option>
+            <option>Rotina Google</option>
+            <option>Rotina Ads</option>
+            <option>Rotina Ads + Reels</option>
+            <option>Rotina Recruit</option>
+          </select>
+          <textarea name="message" placeholder="ספרו לנו בקצרה מה אתם צריכים"></textarea>
+          <button type="submit">שליחת פרטים</button>
+          <div class="success" id="successMsg">הפרטים נקלטו בהצלחה. ניתן כעת לחבר את הטופס למערכת לידים אמיתית.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Rotina • Rotina.co.il • BAMBADV • כל הזכויות שמורות</footer>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('successMsg').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+
+<script>
+  document.querySelectorAll('.selectable-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+
+  document.querySelectorAll('.service-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.selectable-card');
+      const select = document.getElementById('serviceSelect');
+      if (card && select) select.value = card.dataset.service;
+      document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
+      if (card) card.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
