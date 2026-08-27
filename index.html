@@ -39,7 +39,7 @@
     }
     .nav{
       min-height:72px;
-      display:flex;align-items:center;justify-content:space-between;gap:20px;
+      display:flex;align-items:center;justify-content:center;gap:20px;
     }
     .brand{font-size:1.15rem;font-weight:800;letter-spacing:.2px;display:flex;align-items:center}
     .brand-logo{display:block;width:142px;height:auto;border-radius:5px}
@@ -106,10 +106,10 @@
       background:linear-gradient(180deg,rgba(172,155,126,.14),rgba(255,255,255,.035));
     }
     .badge{
-      position:absolute;top:18px;left:18px;
       background:#AC9B7E;color:#192537;
       border-radius:999px;padding:6px 10px;
       font-size:.78rem;font-weight:800;
+      white-space:nowrap;
     }
     .card h3{font-size:1.55rem;margin:0 0 8px}
     .price{
@@ -270,12 +270,20 @@
       65%,100%{left:120%}
     }
     .sales-badge{
-      position:absolute;top:18px;left:18px;
       background:#AC9B7E;color:#192537;
       padding:7px 11px;border-radius:999px;
       font-size:.76rem;font-weight:900;
       box-shadow:0 8px 22px rgba(0,0,0,.18);
+      white-space:nowrap;
     }
+    .card-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .card-top .service-icon{margin:0}
     .micro{
       font-size:.78rem;color:#b8c0c9;margin-top:9px;text-align:center;
     }
@@ -290,12 +298,6 @@
       .card-head{min-height:auto}
       .card.featured{transform:none}
       .card.selected{transform:none}
-      .sales-badge,.badge{
-        position:static;
-        align-self:flex-start;
-        margin-bottom:14px;
-        box-shadow:none;
-      }
       .google-card::before{animation:none;opacity:.35}
       .google-card .service-icon{animation:none}
     }
@@ -311,7 +313,6 @@
 <header>
   <div class="container nav">
     <div class="brand"><img src="rotina-logo.svg" alt="Rotina" class="brand-logo"></div>
-    <a href="#contact" class="cta">בואו נדבר</a>
   </div>
 </header>
 
@@ -340,8 +341,10 @@
 
       <div class="grid">
         <article class="card google-card selectable-card" data-service="Rotina Google">
-          <div class="sales-badge">הבחירה החכמה למסעדות</div>
-          <div class="service-icon">G</div>
+          <div class="card-top">
+            <div class="service-icon">G</div>
+            <div class="sales-badge">הבחירה החכמה למסעדות</div>
+          </div>
           <div class="card-head">
             <h3>Rotina Google</h3>
             <div class="price">₪1,370</div>
@@ -359,7 +362,9 @@
         </article>
 
         <article class="card selectable-card" data-service="Rotina Ads">
-          <div class="service-icon">↗</div>
+          <div class="card-top">
+            <div class="service-icon">↗</div>
+          </div>
           <div class="card-head">
             <h3>Rotina Ads</h3>
             <div class="price">₪1,670</div>
@@ -382,7 +387,9 @@
         </article>
 
         <article class="card selectable-card" data-service="Rotina Ads + Reels">
-          <div class="service-icon">▶</div>
+          <div class="card-top">
+            <div class="service-icon">▶</div>
+          </div>
           <div class="card-head">
             <h3>Rotina Ads + Reels</h3>
             <div class="price">₪3,170</div>
@@ -400,8 +407,10 @@
         </article>
 
         <article class="card selectable-card" data-service="Rotina Recruit">
-          <div class="badge">מחיר השקה</div>
-          <div class="service-icon">＋</div>
+          <div class="card-top">
+            <div class="service-icon">＋</div>
+            <div class="badge">מחיר השקה</div>
+          </div>
           <div class="card-head">
             <h3>Rotina Recruit</h3>
             <div class="price">₪3,970</div>
