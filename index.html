@@ -477,14 +477,13 @@
           <input required type="text" name="business" placeholder="שם העסק" />
           <input required type="tel" name="phone" placeholder="טלפון" />
           <input required type="email" name="email" placeholder="אימייל" />
-          <select required name="service" id="serviceSelect">
-            <option value="">איזה שירות מעניין אתכם?</option>
-            <option>Rotina Google</option>
-            <option>Rotina Ads</option>
-            <option>Rotina Ads + Reels</option>
-            <option>Rotina Recruit</option>
+          <select required name="callback">
+            <option value="">באיזה שעה לחזור לכם?</option>
+            <option>לפני הסרוויס</option>
+            <option>אחרי הסרוויס</option>
+            <option>בשעות הערב</option>
           </select>
-          <textarea name="message" placeholder="מתי תעדיפו שנחזור אליכים, לפני או אחרי הסרוויס?"></textarea>
+          <textarea name="message" placeholder="משהו נוסף שחשוב שנדע לפני השיחה?"></textarea>
           
           <input type="hidden" name="_subject" ...>
           <input type="hidden" name="_template" ...>
@@ -523,8 +522,6 @@
   document.querySelectorAll('.service-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const card = this.closest('.selectable-card');
-      const select = document.getElementById('serviceSelect');
-      if (card && select) select.value = card.dataset.service;
       document.querySelectorAll('.selectable-card').forEach(c => c.classList.remove('selected'));
       if (card) card.classList.add('selected');
     });
