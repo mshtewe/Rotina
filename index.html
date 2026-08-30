@@ -39,10 +39,12 @@
     }
     .nav{
       min-height:72px;
-      display:flex;align-items:center;justify-content:center;gap:20px;
+      display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:20px;
     }
     .brand{font-size:1.15rem;font-weight:800;letter-spacing:.2px;display:flex;align-items:center}
     .brand-logo{display:block;width:142px;height:auto;border-radius:5px}
+    .navlinks{display:flex;gap:18px;font-weight:700;font-size:.9rem}
+    .navlinks a:hover{color:var(--accent)}
     .nav a.cta{
       background:#AC9B7E;color:#192537;padding:11px 18px;border-radius:999px;font-weight:800;
     }
@@ -162,6 +164,7 @@
       .grid,.why,.contact-wrap{grid-template-columns:1fr}
       .card.featured{transform:none}
       h1{letter-spacing:-1.5px}
+      .navlinks{display:none}
     }
     @media(max-width:560px){
       .nav{min-height:64px}
@@ -313,6 +316,7 @@
 <header>
   <div class="container nav">
     <div class="brand"><img src="rotina-logo.svg" alt="Rotina" class="brand-logo"></div>
+    <nav class="navlinks"><a href="/">ראשי</a><a href="/restaurants/">שיווק למסעדות</a><a href="/recruit/">גיוס למסעדות</a></nav>
   </div>
 </header>
 
